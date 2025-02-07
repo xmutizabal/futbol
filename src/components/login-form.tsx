@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import Link from "next/link"
 
 export function LoginForm({
   className,
@@ -74,7 +75,7 @@ export function LoginForm({
                   <Input id="password" type="password" required />
                 </div>
                 <Button type="submit" className="w-full">
-                  Login
+                  <Link href="/dashboard"> Login </Link> 
                 </Button>
               </div>
               <div className="text-center text-sm">

@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { useState, useEffect } from "react"
 import VideoCarousel from "@/components/video-carousel"
-
+import Link from "next/link"
 export default function VideoLanding() {
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -34,10 +34,10 @@ export default function VideoLanding() {
           </div>
           <div className="flex flex-col justify-center gap-4 min-[400px]:flex-row">
             <Button size="lg" className="bg-white text-black hover:bg-white/90">
-              Comenzar
+                <Link href="/login">Comenzar</Link>
             </Button>
             <Button size="lg" className="bg-white text-black hover:bg-white/90">
-              Tecnología
+                <Link href="/detalles">¿Que es esto?</Link>
             </Button>
           </div>
         </div>
