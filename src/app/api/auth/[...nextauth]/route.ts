@@ -1,8 +1,18 @@
+
 import NextAuth from "next-auth";
+import { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { supabase } from "@/lib/supabase";
 
-const handler = NextAuth({
+if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
+  throw new Error('NEXT_PUBLIC_SUPABASE_URL no está definida');
+}
+
+if (!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+  throw new Error('NEXT_PUBLIC_SUPABASE_ANON_KEY no está definida');
+}
+
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -34,6 +44,7 @@ const handler = NextAuth({
       return token;
     }
   }
-});
+};
 
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
